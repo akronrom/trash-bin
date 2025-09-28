@@ -25,7 +25,7 @@ public class FrequencyTable {
 		/*
 		INSTRUCTIONS: 	1.	The variable 'df' denotes how many 
 							decimal places to round to. (e.g.:
-							'#.###' round up to three places.
+							'#.###' rounds up to three places)
 							
 						2.	Change only the 'xt' and 'ft' vars
 							to manipulate the dataset.
@@ -41,7 +41,7 @@ public class FrequencyTable {
 		
 		if (xt.length != ft.length) {
 			
-			System.out.println("WARNING: 'f' AND 'x' tables have differing lengths, recheck!");
+			System.out.println("WARNING: 'f' AND 'x' differ by " + Math.abs(ft.length - xt.length) + " elements, recheck your inputs!");
 			return;
 			
 		}
@@ -92,12 +92,18 @@ public class FrequencyTable {
 		double std = Math.sqrt(vrn);
 		
 		System.out.println(
-		"\nVARIANCE.:\t"	+ df.format(vrn)	+ "\t"
-		+ "MEAN:\t"			+ df.format(mean)	+ "\t"
-		+ "RANGE:\t"		+ (xt[e-1]-xt[0])	+ "\t"
-		+ "\nSTD. DEV.:\t" 	+ df.format(std) 	+ "\t"
-		+ "MIN:\t"			+ xt[0]				+ "\t"
-		+ "MAX:\t"			+ xt[e-1]			+ "\t"
+		"\t"				+ "------"					+ "\t"
+		+ "\t"				+ "------"					+ "\t"
+		+ "\t\t"			+ "------"					+ "\n"
+		+ "\t"		 		+ df.format(sum(xt))		+ "\t"
+		+ "\t"		 		+ df.format(sum(fxt))		+ "\t"
+		+ "\t\t"		+ df.format(sum(fmt))			+ "\n"
+		+ "\nVARIANCE.:\t"	+ df.format(vrn)			+ "\t"
+		+ "MEAN:\t"			+ df.format(mean)			+ "\t"
+		+ "RANGE:\t"		+ df.format(xt[e-1]-xt[0])	+ "\t"
+		+ "\nSTD. DEV.:\t" 	+ df.format(std) 			+ "\t"
+		+ "MIN:\t"			+ xt[0]						+ "\t"
+		+ "MAX:\t"			+ xt[e-1]					+ "\n"
 		);
 		
 	}
@@ -128,32 +134,43 @@ public class FrequencyTable {
 				1.0,
 				1.0,
 			}
+			
+			
 		);
 		
 		printTable(
 			new double[]
 			{
-				18.0,			
-				19.0,			
-				20.0,			
-				21.0,
-				23.0,
-				24.0,
-				25.0,
-				31.0,
+				51.89,
+				53.25,
+				53.98,
+				54.75,
+				54.85,
+				55.23,
+				55.64,
+				55.75,
+				56.17,
 				
 			}, 
 			new double[]
 			{
-				2.0,
-				1.0,
-				2.0,
-				4.0,
-				2.0,
-				2.0,
-				1.0,
-				1.0,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				2,
+				1,
+				
 			}
+			
+			
 		);
+		
+		
 	}
+	
+	
 }
