@@ -97,7 +97,7 @@ public class FrequencyTable {
 		+ "\t\t"			+ "------"					+ "\n"
 		+ "\t"		 		+ df.format(sum(xt))		+ "\t"
 		+ "\t"		 		+ df.format(sum(fxt))		+ "\t"
-		+ "\t\t"		+ df.format(sum(fmt))			+ "\n"
+		+ "\t\t"			+ df.format(sum(fmt))		+ "\n"
 		+ "\nVARIANCE.:\t"	+ df.format(vrn)			+ "\t"
 		+ "MEAN:\t"			+ df.format(mean)			+ "\t"
 		+ "RANGE:\t"		+ df.format(xt[e-1]-xt[0])	+ "\t"
