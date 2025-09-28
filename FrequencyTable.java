@@ -14,12 +14,13 @@ public class FrequencyTable {
 		
 		return result;
 	}
-
-	public static void main(String[] args) {
+	
+	static int counter = 0;
+	static void printTable(double[] xt, double[] ft) {
 		
-		System.out.println("\n\tSTANDARD DEVIATION & FREQ. TABLE #1\n");
+		counter += 1; System.out.println("\n\tSTANDARD DEVIATION & FREQ. TABLE #" + counter + "\n");
 		
-		DecimalFormat df = new DecimalFormat("#.##");
+		DecimalFormat df = new DecimalFormat("#.###");
 		
 		/*
 		INSTRUCTIONS: 	1.	The variable 'df' denotes how many 
@@ -37,29 +38,6 @@ public class FrequencyTable {
 							of each array does not line up.
 		
 		*/
-	
-		double[] xt = {
-			18.0,			
-			19.0,			
-			20.0,			
-			21.0,
-			23.0,
-			24.0,
-			25.0,
-			31.0,
-			
-		};
-		
-		double[] ft = {
-			2.0,
-			1.0,
-			2.0,
-			4.0,
-			2.0,
-			2.0,
-			1.0,
-			1.0,
-		};
 		
 		if (xt.length != ft.length) {
 			
@@ -112,6 +90,7 @@ public class FrequencyTable {
 		
 		double vrn = sum(fmt)/(n-1);
 		double std = Math.sqrt(vrn);
+		
 		System.out.println(
 		"\nVARIANCE.:\t"	+ df.format(vrn)	+ "\t"
 		+ "MEAN:\t"			+ df.format(mean)	+ "\t"
@@ -120,7 +99,61 @@ public class FrequencyTable {
 		+ "MIN:\t"			+ xt[0]				+ "\t"
 		+ "MAX:\t"			+ xt[e-1]			+ "\t"
 		);
-	
+		
 	}
 
+	public static void main(String[] args) {
+		
+		printTable(
+			new double[]
+			{
+				18.0,			
+				19.0,			
+				20.0,			
+				21.0,
+				23.0,
+				24.0,
+				25.0,
+				31.0,
+				
+			}, 
+			new double[]
+			{
+				2.0,
+				1.0,
+				2.0,
+				4.0,
+				2.0,
+				2.0,
+				1.0,
+				1.0,
+			}
+		);
+		
+		printTable(
+			new double[]
+			{
+				18.0,			
+				19.0,			
+				20.0,			
+				21.0,
+				23.0,
+				24.0,
+				25.0,
+				31.0,
+				
+			}, 
+			new double[]
+			{
+				2.0,
+				1.0,
+				2.0,
+				4.0,
+				2.0,
+				2.0,
+				1.0,
+				1.0,
+			}
+		);
+	}
 }
