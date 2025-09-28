@@ -78,13 +78,14 @@ public class FrequencyTable {
 			double fm	= fmt[i];
 			
 			System.out.println(
-			(i + 1) 			+ "\t" 
+			(i + 1) + "."		+ "\t" 
 			+ df.format(x) 		+ "\t" 
 			+ df.format(f) 		+ "\t" 
 			+ df.format(fx) 	+ "\t" 
 			+ df.format(mu) 	+ "\t" 
 			+ df.format(mm) 	+ "\t" 
-			+ df.format(fm));
+			+ df.format(fm)		+ "\t"
+			);
 			
 		}
 		
@@ -109,6 +110,22 @@ public class FrequencyTable {
 	}
 
 	public static void main(String[] args) {
+		
+		System.out.print("""
+				
+				WRITTEN BY GABRIEL, SEPT. 28
+						
+		(CENTRAL-TENDENCY) Prints a table, includes standard deviation,
+		variance, mean, range, all the shebang; doesn't include median,
+		mode. Do that yourself, I'm that lazy after all.
+		
+		(i) Decimal places, datasets, changed in-code.
+		
+		""");
+		
+		// BEYOND THIS POINT: call 'printTable()' to avoid confusion.
+		
+		long t1 = System.nanoTime();
 		
 		printTable(
 			new double[]
@@ -169,6 +186,15 @@ public class FrequencyTable {
 			
 		);
 		
+		long t2 = (System.nanoTime() - t1)/1000000;
+		
+		System.out.print(
+		
+		"\t\t" + "DONE PRINTING, ENJOY." 						+ "\n" +
+		"\t" + "Finished printing in " + t2 + " milliseconds!" 	+ "\n"
+		
+		);
+	
 		
 	}
 	
