@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class FrequencyTable {
 	
@@ -62,16 +63,16 @@ public class FrequencyTable {
 		double mean = sum(fxt)/n;
 		for (int i = 0; i < e; i++) {
 			
-			mut[i] = xt[i] 	- 	mean; 
-			mmt[i] = mut[i] * 	mut[i];
-			fmt[i] = ft[i] 	* 	mmt[i]; 
+			mut[i] = xt	[i] - mean; 
+			mmt[i] = mut[i] * mut[i];
+			fmt[i] = ft	[i] * mmt[i]; 
 			
 		}
 		
 		for (int i = 0; i < e; i++) {
 			
-			double x 	= xt[i]; 
-			double f 	= ft[i];
+			double x 	= xt [i]; 
+			double f 	= ft [i];
 			double fx 	= fxt[i];
 			double mu	= mut[i];
 			double mm	= mmt[i];
@@ -93,10 +94,10 @@ public class FrequencyTable {
 		double std = Math.sqrt(vrn);
 		
 		System.out.println(
-		"\t"				+ "------"					+ "\t"
+		"\t"				 							+ "\t"
 		+ "\t"				+ "------"					+ "\t"
 		+ "\t\t"			+ "------"					+ "\n"
-		+ "\t"		 		+ df.format(sum(xt))		+ "\t"
+		+ "\t"		 		 							+ "\t"
 		+ "\t"		 		+ df.format(sum(fxt))		+ "\t"
 		+ "\t\t"			+ df.format(sum(fmt))		+ "\n"
 		+ "\nVARIANCE.:\t"	+ df.format(vrn)			+ "\t"
@@ -111,6 +112,8 @@ public class FrequencyTable {
 
 	public static void main(String[] args) {
 		
+		Scanner sc = new Scanner(System.in);
+		
 		System.out.print("""
 				
 				WRITTEN BY GABRIEL, SEPT. 28
@@ -121,9 +124,15 @@ public class FrequencyTable {
 		
 		(i) Decimal places, datasets, changed in-code.
 		
-		""");
+		TYPE 'YES' TO PROCEED TO TABLES:\t""");
 		
-		// BEYOND THIS POINT: call 'printTable()' to avoid confusion.
+		String ans = sc.nextLine();
+		
+		if (!ans.equals("YES")) {
+			
+			return;
+			
+		}
 		
 		long t1 = System.nanoTime();
 		
@@ -190,8 +199,8 @@ public class FrequencyTable {
 		
 		System.out.print(
 		
-		"\t\t" + "DONE PRINTING, ENJOY." 						+ "\n" +
-		"\t" + "Finished printing in " + t2 + " milliseconds!" 	+ "\n"
+		"\t\t" 	+ "DONE PRINTING, ENJOY." + "\n" 	+
+		"\t" 	+ "Finished printing in " + t2		+ " milliseconds!" 	+ "\n"
 		
 		);
 	
