@@ -2,6 +2,8 @@ public class Vector2D {
 	
 	double x, y;
 	
+	Vector2D() {}
+	
 	Vector2D(double x, double y) {
 		
 		this.x = x;
@@ -39,7 +41,7 @@ public class Vector2D {
 	
 	double mag() {
 		
-        return sqrt(x*x + y*y);
+        return Math.sqrt(x*x + y*y);
 		
     }
 	
