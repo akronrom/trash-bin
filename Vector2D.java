@@ -2,7 +2,9 @@ public class Vector2D {
 	
 	double x, y;
 	
-	Vector2D() {}
+	Vector2D() {
+		
+	}
 	
 	Vector2D(double x, double y) {
 		
@@ -10,6 +12,8 @@ public class Vector2D {
 		this.y = y;
 		
 	}
+	
+	// Vector2D: Addition and Subtraction
 	
 	void add(Vector2D v) {
 		
@@ -25,6 +29,27 @@ public class Vector2D {
 		
 	}
 	
+	// Vector2D: Magnitude, Vector Length
+	
+	double mag() {
+		
+        return Math.sqrt(
+		
+			x*x + y*y
+			
+		);
+		
+    }
+	
+	void normalize() {
+		double mag = mag();
+		if (mag != 0) {
+			x /= mag;
+			y /= mag;
+		}
+		
+	}
+	
 	void div(double d) {
 		
 		x /= d;
@@ -36,21 +61,6 @@ public class Vector2D {
 		
 		x *= d;
 		y *= d;
-		
-	}
-	
-	double mag() {
-		
-        return Math.sqrt(x*x + y*y);
-		
-    }
-	
-	void normalize() {
-		double mag = mag();
-		if (mag != 0) {
-			x /= mag;
-			y /= mag;
-		}
 		
 	}
 	
