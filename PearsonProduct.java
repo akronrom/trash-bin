@@ -88,28 +88,22 @@ public class PearsonProduct {
 		
 		String deg = "";
 		
-		switch ((int) Math.round(3 * res)) {
+		switch ((int) Math.abs(Math.round(4 * res))) {
 			
-			case -3	: 	deg = "Highly Negative";
+			case 0	: 	deg = "NONE.";
 						break;
 						
-			case -2	: 	deg = "Moderately Negative";
-						break;
-			
-			case -1	: 	deg = "Low Negative";
-						break;
-					 
-			case 0	: 	deg = "No correlation.";
+			case 1	: 	deg = "LOW.";
 						break;
 						
-			case 1	: 	deg = "Low Positive";
+			case 2	: 	deg = "MED.";
 						break;
 						
-			case 2	: 	deg = "Moderately Positive";
+			case 3	: 	deg = "HIGH.";
 						break;
 						
-			case 3	: 	deg = "Highly Positive";
-						break;
+			case 4	: 	deg = "VERY HIGH.";
+						break;			
 			
 		}
 		
@@ -196,7 +190,7 @@ public class PearsonProduct {
 				28.5,
 				27.5,
 				37.1
-
+				
 				
 			}, 
 			
@@ -234,6 +228,8 @@ public class PearsonProduct {
 				33.7,
 				22.7,
 				15.0
+				
+				
 			},
 			
 			10
@@ -307,8 +303,41 @@ class Plotter extends JPanel {
 		
 		int SIZE = 5;
 		
+		String displDeg = "";
+		
+		switch ((int) Math.round(4 * r)) {
+			
+			case -4	: 	displDeg = "Very Highly Negative";
+						break;
+						
+			case -3	: 	displDeg = "Highly Negative";
+						break;
+						
+			case -2	: 	displDeg = "Moderately Negative";
+						break;
+			
+			case -1	: 	displDeg = "Low Negative";
+						break;
+					 
+			case 0	: 	displDeg = "No correlation.";
+						break;
+						
+			case 1	: 	displDeg = "Low Positive";
+						break;
+						
+			case 2	: 	displDeg = "Moderately Positive";
+						break;
+						
+			case 3	: 	displDeg = "Highly Positive";
+						break;
+
+			case 4	: 	displDeg = "Very Highly Positive";
+						break;
+			
+		}
+		
 		g.drawString("Written by: Gabriel", WIDTH - 125, 25);
-		g.drawString(msg + ", "+ r, 		25, HEIGHT - 25);			
+		g.drawString(displDeg + ", "+ r, 	25, HEIGHT - 25);			
 		g.drawString(now(), 				25, 		 25);	
 		
 		for (int i = 0; i < xt.length; i++) {
@@ -320,7 +349,7 @@ class Plotter extends JPanel {
 						WIDTH 	- (int) (xt[i] * scale), 
 						HEIGHT 	- (int) (yt[i] * scale),
 						
-						SIZE,		SIZE
+						SIZE, SIZE	// Dimensions
 						
 						);
 						
@@ -331,7 +360,7 @@ class Plotter extends JPanel {
 						WIDTH 	- (int) (xt[i] * scale), 
 						HEIGHT 	- (int) (yt[i] * scale),
 						
-						SIZE,		SIZE
+						SIZE, SIZE
 						
 						);
 						
@@ -344,7 +373,9 @@ class Plotter extends JPanel {
 		}
 		
 		
+		
 	}
+	
 	
 	
 }
